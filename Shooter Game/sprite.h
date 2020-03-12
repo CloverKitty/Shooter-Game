@@ -1,8 +1,16 @@
-#pragma once
+#ifndef SPRITE_H
+#define SPRITE_H
 
-#include <iostream>
-#include <SDL.h>
-#include <SDL_image.h>
+#ifdef _MSC_VER
+#pragma once
+#endif // _MSC_VER
+
+#include <iostream> 
+//#include <SDL.h> 
+#include <SDL2/SDL.h>
+//#include <SDL_image.h>
+#include <SDL2/SDL_image.h>
+
 
 class sprite
 {
@@ -27,3 +35,4 @@ public:
 	void render();
 };
 
+#endif // SPRITE_H
