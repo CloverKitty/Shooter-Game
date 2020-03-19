@@ -1,3 +1,11 @@
+#ifndef GAME_H
+#define GAME_H
+
+#ifdef _MSC_VER
+#pragma once
+#endif // _MSC_VER
+
+
 #include "sprite.h"
 
 class game
@@ -15,3 +23,5 @@ public:
 	
 	void run();
 };
+
+#endif // GAME_H
