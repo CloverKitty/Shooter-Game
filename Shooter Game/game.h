@@ -7,6 +7,7 @@
 
 
 #include "sprite.h"
+#include "player.h"
 
 class game
 {
@@ -17,6 +18,9 @@ private:
 	SDL_Window* window;
 	
 	SDL_Renderer* windowRenderer;
+
+
+	bool key_w;
 
 public:
 	game();

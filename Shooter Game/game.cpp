@@ -26,22 +26,35 @@ void game::init() {
 void game::run() {
 	init();
 
-	sprite cat = sprite("res/sprite.png", windowRenderer, 10, 10, 64, 64);
-	cat.create();
+	player coolio = player("playa", "res/sprite.png", 100, 100, 64, 64, windowRenderer);
+	coolio.create();
 
 	while (running == true) {
 
 		handleEvents();
+		if (key_w == true){
+			if (coolio.path != "res/sprite-ghost.png") {
+				coolio.loadImage("res/sprite-ghost.png");
+				printf("w\n");
+			}
+		}
+		else {
+			if (coolio.path != "res/sprite.png") {
+				coolio.loadImage("res/sprite.png");
+			}
+		}
 
 		SDL_Delay(1);
 
 		SDL_RenderClear(windowRenderer);
 
-		cat.render();
+		coolio.render();
 
 		SDL_RenderPresent(windowRenderer);
 
+
 	}
+
 
 	SDL_DestroyRenderer(windowRenderer);
 	SDL_DestroyWindow(window);
@@ -52,6 +65,16 @@ void game::run() {
 
 void game::handleEvents() {
 	SDL_Event event;
+
+	const Uint8* keystate = SDL_GetKeyboardState(NULL);
+
+	if (keystate[SDL_SCANCODE_W] && SDL_KEYDOWN) {
+		key_w = true;
+	}
+	else {
+		key_w = false;
+	}
+
 	SDL_PollEvent(&event);
 	switch (event.type) {
 	case SDL_QUIT:
@@ -63,6 +86,7 @@ void game::handleEvents() {
 			running = false;
 			break;
 		}
+
 	default:
 		break;
 	}

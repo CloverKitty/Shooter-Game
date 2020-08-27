@@ -3,28 +3,33 @@
 
 #ifdef _MSC_VER
 #pragma once
+#include <SDL.h>
+#include <SDL_image.h>
 #endif // _MSC_VER
 
-#include <iostream> 
-//#include <SDL.h> 
+#ifdef __unix
 #include <SDL2/SDL.h>
-//#include <SDL_image.h>
 #include <SDL2/SDL_image.h>
+#endif 
+
+#include <iostream> 
+#include <string>
 
 
 class sprite
 {
 private:
-	const char* path;
 	SDL_Texture* texture;
-	SDL_Renderer* renderer;
 
 	SDL_Texture* processImage();
 
 protected:
-	SDL_Rect dstrect; // maybe need to be pointer
-
+	
 public:
+	SDL_Rect dstrect; // maybe need to be pointer
+	const char* path;
+	SDL_Renderer* renderer;
+
 	sprite();
 	sprite(const char* path, SDL_Renderer* renderer);
 	sprite(const char* path, SDL_Renderer* renderer, int x, int y, int w, int h);

@@ -51,12 +51,16 @@ SDL_Texture* sprite::processImage() {
 	return newTexture;
 }
 
-bool sprite::loadImage(const char* path) {
+ bool sprite::loadImage(const char* path) {
 	bool sucess = true;
+	if (this->path != path) {
+		this->path = path;
+	}
 	texture = processImage();
 	if (texture == nullptr) {
 		sucess = false;
 	}
+
 	return sucess;
 }
 
