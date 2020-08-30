@@ -20,7 +20,10 @@ private:
 	SDL_Renderer* windowRenderer;
 
 
-	bool key_w;
+	bool movePlayerUp;
+	bool movePlayerDown;
+	bool movePlayerLeft;
+	bool movePlayerRight;
 
 public:
 	game();

@@ -64,6 +64,12 @@ SDL_Texture* sprite::processImage() {
 	return sucess;
 }
 
+ int sprite::changeImage(const char* path) {
+	SDL_DestroyTexture(texture);
+	loadImage(path);
+	return 0;
+ }
+
 void sprite::create() {
 	loadImage(path);
 }

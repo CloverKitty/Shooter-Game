@@ -17,7 +17,8 @@ public:
 	player(std::string name, const char* defaultSpritePath, int posX, int posY, int width, int height, SDL_Renderer* renderer);
 	~player();
 
-	//void render();
+	int movement(bool up, bool down, bool left, bool right);
+	bool alive();
 };
 
 #endif // PLAYER_H

@@ -32,16 +32,29 @@ void game::run() {
 	while (running == true) {
 
 		handleEvents();
-		if (key_w == true){
+		if (movePlayerUp == true){
 			if (coolio.path != "res/sprite-ghost.png") {
-				coolio.loadImage("res/sprite-ghost.png");
-				printf("w\n");
+				coolio.changeImage("res/sprite-ghost.png");
+				printf("UP\n");
 			}
+			coolio.movement(true, false, false, false);
 		}
 		else {
 			if (coolio.path != "res/sprite.png") {
-				coolio.loadImage("res/sprite.png");
+				coolio.changeImage("res/sprite.png");
 			}
+		}
+
+		if (movePlayerDown == true) {
+			coolio.movement(false, true, false, false);
+		}
+
+		if (movePlayerLeft == true) {
+			coolio.movement(false, false, true, false);
+		}
+
+		if (movePlayerRight == true) {
+			coolio.movement(false, false, false, true);
 		}
 
 		SDL_Delay(1);
@@ -69,10 +82,31 @@ void game::handleEvents() {
 	const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
 	if (keystate[SDL_SCANCODE_W] && SDL_KEYDOWN) {
-		key_w = true;
+		movePlayerUp = true;
 	}
 	else {
-		key_w = false;
+		movePlayerUp = false;
+	}
+
+	if (keystate[SDL_SCANCODE_S] && SDL_KEYDOWN) {
+		movePlayerDown = true;
+	}
+	else {
+		movePlayerDown = false;
+	}
+
+	if (keystate[SDL_SCANCODE_A] && SDL_KEYDOWN) {
+		movePlayerLeft = true;
+	}
+	else {
+		movePlayerLeft = false;
+	}
+
+	if (keystate[SDL_SCANCODE_D] && SDL_KEYDOWN) {
+		movePlayerRight = true;
+	}
+	else {
+		movePlayerRight = false;
 	}
 
 	SDL_PollEvent(&event);

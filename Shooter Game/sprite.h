@@ -36,6 +36,7 @@ public:
 	~sprite();
 
 	bool loadImage(const char* path);
+	int changeImage(const char* path);
 	void create();
 	void render();
 };

@@ -17,8 +17,24 @@ player::~player() {
 	
 }
 
-/*
-void player::render() {
-	
+/*assign parameters keys (up, down, left, right)*/
+int player::movement(bool up, bool down, bool left, bool right) {
+
+	if (up && !down && !left && !right) {
+		dstrect.y = dstrect.y - 1;
+	}
+
+	if (!up && down && !left && !right) {
+		dstrect.y = dstrect.y + 1;
+	}
+
+	if (!up && !down && left && !right) {
+		dstrect.x = dstrect.x - 1;
+	}
+
+	if (!up && !down && !left && right) {
+		dstrect.x = dstrect.x + 1;
+	}
+
+	return 0;
 }
-*/
