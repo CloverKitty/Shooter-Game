@@ -3,7 +3,7 @@
 
 #ifdef _MSC_VER
 #pragma once
-#include <SDL2.h>
+#include <SDL.h>
 #include <SDL_image.h>
 #endif // _MSC_VER
 
