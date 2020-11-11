@@ -3,13 +3,14 @@
 
 #ifdef _MSC_VER
 #pragma once
-#include <SDL.h>
+#include <SDL2.h>
 #include <SDL_image.h>
 #endif // _MSC_VER
 
 #ifdef __unix
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+
 #endif 
 
 #include <iostream> 
